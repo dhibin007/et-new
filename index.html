@@ -102,58 +102,38 @@
       text-decoration: none;
       font-size: 14px;
     }
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url('fire-background.png') center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
 
-    .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-    }
+.hero-content {
+  z-index: 2;
+  color: white;
+  animation: slideRight 1s ease-out forwards;
+}
 
-    .background-video video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
 
-    /* Fallback image on mobile */
-    @media (max-width: 768px) {
-      .background-video video {
-        display: none;
-      }
-      .hero {
-        background: url('your-fallback-image.jpg') center center/cover no-repeat;
-      }
-    }
+.hero-content .tagline {
+  font-size: 1.2rem;
+  color: #f7931e;
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 1s;
+}
 
-    .hero-content {
-      z-index: 2;
-      color: white;
-      animation: slideRight 1s ease-out forwards;
-    }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .hero-content .tagline {
-      font-size: 1.2rem;
-      color: #f7931e;
-      opacity: 0;
-      animation: fadeIn 2s ease-in forwards;
-      animation-delay: 1s;
-    }
 
     .section {
       padding: 60px 20px;
@@ -244,11 +224,6 @@
   </header>
 
   <section class="hero">
-    <div class="background-video">
-      <video autoplay muted loop playsinline>
-        <source src="your-video.mp4" type="video/mp4">
-      </video>
-    </div>
     <div class="hero-content">
       <h1>EUROTECH INTEGRATED<br>TECHNICAL SERVICES</h1>
       <div class="tagline">Safety Engineered for Excellence</div>
