@@ -20,14 +20,18 @@
     }
 
     header {
-      position: absolute;
       width: 100%;
       padding: 0.5rem 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: transparent;
-      z-index: 10;
+      background: rgba(255, 255, 255, 0.65);
+      color: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
     }
 
     .brand {
@@ -35,11 +39,11 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: white;
+      color: black;
     }
 
     .brand img {
-      height: 40px;
+      height: 60px;
     }
 
     nav ul {
@@ -48,40 +52,49 @@
       gap: 20px;
     }
 
-    nav ul li {
-      position: relative;
-    }
-
     nav ul li a {
-      color: white;
+      color: black;
       text-decoration: none;
       padding: 10px;
     }
 
-    .dropdown-content {
+    .menu-toggle {
       display: none;
-      position: absolute;
-      background-color: #333;
-      top: 100%;
-      left: 0;
-      min-width: 160px;
-      z-index: 20;
       flex-direction: column;
+      cursor: pointer;
     }
 
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      margin: 4px 0;
     }
 
-    nav ul li:hover .dropdown-content {
+    nav {
       display: flex;
     }
 
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
     .hero {
-      background-image: url('fire-background.png');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -92,25 +105,37 @@
       text-align: center;
       color: white;
       padding: 1rem;
+      animation: slideFadeIn 1s ease forwards;
       position: relative;
     }
 
-    .hero h1,
-    .hero p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+      animation: fadeSlideUp 1.5s ease forwards;
     }
 
     .hero h1 {
       font-size: 3rem;
-      animation-delay: 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 2s forwards;
+      animation-delay: 0.5s;
     }
 
     .hero p {
       font-size: 1.2rem;
       color: #f04e23;
-      animation-delay: 0.6s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 2s forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes slideFadeIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes fadeInUp {
@@ -120,11 +145,34 @@
       }
     }
 
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     .section {
       padding: 60px 20px;
       color: white;
       text-align: center;
+      background-size: cover;
+      background-position: center;
       background-color: #1e1e1e;
+    }
+
+    #about {
+      background-image: url('about-bg.jpg');
+    }
+
+    #services {
+      background-image: url('services-bg.jpg');
+    }
+
+    #clients {
+      background-image: url('clients-bg.jpg');
+    }
+
+    #contact {
+      background-image: url('contact-bg.jpg');
     }
 
     .section h2 {
@@ -206,61 +254,42 @@
 <body>
 
   <header>
-    <a href="#" class="brand">
+    <a href="#hero" class="brand">
       <img src="logo.png" alt="Eurotech Logo" />
       EUROTECH
     </a>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav>
       <ul>
-        <li>
-          <a href="#services">Services</a>
-          <div class="dropdown-content">
-            <a href="#services">Fire Alarm</a>
-            <a href="#services">Fire Fighting</a>
-            <a href="#services">Emergency Lighting</a>
-            <a href="#services">Central Battery System</a>
-            <a href="#services">ELV Solutions</a>
-            <a href="#services">Fire Stop Solutions</a>
-          </div>
-        </li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#clients">Clients</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>EUROTECH INTEGRATED<br>TECHNICAL SERVICES</h1>
-    <p>Experts in Fire Protection Systems across the UAE</p>
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <h1>EUROTECH INTEGRATED<br>TECHNICAL SERVICES</h1>
+      <p>Experts in Fire Protection Systems across the UAE</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>EUROTECH Integrated Technical Services is a trusted name in the UAE for fire protection systems. With a team of skilled professionals, we deliver top-quality installation and maintenance of fire alarms, fire fighting equipment, emergency lighting, ELV systems, and more.</p>
   </section>
 
   <section class="section" id="services">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <img src="fire-alarm.jpg" alt="Fire Alarm" />
-        <h3>Fire Alarm</h3>
-      </div>
-      <div class="service-card">
-        <img src="fire-fighting.jpg" alt="Fire Fighting" />
-        <h3>Fire Fighting</h3>
-      </div>
-      <div class="service-card">
-        <img src="emergency-lighting.jpg" alt="Emergency Lighting" />
-        <h3>Emergency Lighting</h3>
-      </div>
-      <div class="service-card">
-        <img src="central-battery.jpg" alt="Central Battery System" />
-        <h3>Central Battery System</h3>
-      </div>
-      <div class="service-card">
-        <img src="elv.jpg" alt="ELV Solutions" />
-        <h3>ELV Solutions</h3>
-      </div>
-      <div class="service-card">
-        <img src="fire-stop.jpg" alt="Fire Stop Solutions" />
-        <h3>Fire Stop Solutions</h3>
-      </div>
+      <!-- Service cards here -->
     </div>
   </section>
 
@@ -268,21 +297,38 @@
     <h2>Our Clients</h2>
     <div class="client-carousel-wrapper">
       <div class="client-carousel">
-        <img src="client1.png" alt="Client 1" />
-        <img src="client2.png" alt="Client 2" />
-        <img src="client3.png" alt="Client 3" />
-        <img src="client4.png" alt="Client 4" />
-        <img src="client5.png" alt="Client 5" />
-      
-        
-
+        <!-- Client logos here -->
       </div>
     </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Get in touch with us for expert fire protection solutions across the UAE.</p>
   </section>
 
   <a href="https://wa.me/971589213536" class="whatsapp-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
   </a>
 
+  <script>
+    const hero = document.getElementById('hero');
+    const images = [
+      'fire-background.png',
+      'fire-alarm.jpg',
+      'fire-fighting.jpg'
+    ];
+    let current = 0;
+
+    function slideImage() {
+      hero.style.animation = 'slideFadeIn 1s ease forwards';
+      setTimeout(() => {
+        current = (current + 1) % images.length;
+        hero.style.backgroundImage = `url('${images[current]}')`;
+      }, 200);
+    }
+
+    setInterval(slideImage, 3000);
+  </script>
 </body>
 </html>
