@@ -1,4 +1,69 @@
-@media (max-width: 768px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eurotech Integrated Technical Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #121212;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: flex-start; /* Align header content to the left */
+      align-items: center; /* Center items vertically */
+      background: transparent;
+      color: rgb(11, 0, 42);
+      position: fixed;
+      top: 0;
+      left: 0; /* Align header to the left */
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      position: top center;
+      padding: 10px 5px;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: rgb(254, 254, 255);
+      margin: 4px 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
   header {
     flex-wrap: wrap;
     justify-content: space-between;
@@ -88,3 +153,339 @@
     font-size: 0.9rem;
   }
 }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    .hero {
+      background-image: url('fire-background.png');
+      background-size: cover;
+      background-position: left center;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start; /* Align hero content to the left */
+      align-items: flex-start; /* Align hero content to the top */
+      flex-direction: column;
+      text-align: left; /* Align text to the left */
+      color: #ff0000;
+      padding: 6rem 2rem 2rem; /* Padding adjustments */
+      position: relative;
+    }
+
+    .hero a img {
+      height: 130px;
+      margin-bottom: 0.6rem;
+      margin-left: 3.9rem;
+      animation: pulse 2s infinite;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: 1.9rem;
+      line-height: 1.1;
+      color: rgb(4, 10, 59); /* Change color to red */
+      text-align: left; /* Ensure text is aligned to the left */
+    }
+
+    .hero p {
+      font-size: 0.8rem;
+      color: red; /* Change color to red for the paragraph as well */
+      margin-left: 2.9rem;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .section {
+      padding: 60px 20px;
+      color: #ffffff;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-color: #1e1e1e;
+    }
+
+    .section h2, .section p {
+      color: #f8f8f8 !important;
+      text-align: top center;
+    }
+   
+    /* Adjustments for sections to align to the top right */
+    #home,
+    #about,
+    #services,
+    #clients,
+    #contact {
+      display: flex;
+      justify-content: flex-end; /* Align to the right */
+      align-items: flex-start;
+      margin-bottom: 15.6rem;
+      flex-direction: column;
+      text-align: top center; /* Text alignment */
+      padding-top: 30px; /* Space from the top */
+    }
+
+    #about {
+  background-image: url('about-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-content {
+  background-color: rgba(0, 0, 0, 0.75); /* Black with 75% opacity */
+  padding: 40px 30px;
+  border-radius: 12px;
+  max-width: 700px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+    #services {
+      background-image: url('services-bg.jpg');
+      background-size: cover;
+      background-position: left center;
+      height: 100vh;
+      display: flex;
+    }
+
+    #clients {
+      background-image: url('clients-bg.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url('clients-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.clients-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+    
+
+    #contact {
+      background-image: url('contact-bg.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+}
+
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+    
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .service-card {
+      background-color: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: scale(1.02);
+    }
+
+    
+    
+
+    .service-card h3 {
+      padding: 10px;
+      color: #f7931e;
+      font-size: 1.1rem;
+      text-align: right;
+    }
+
+    .client-carousel-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .client-carousel {
+      display: flex;
+      width: fit-content;
+      animation: slideImages 20s linear infinite;
+    }
+
+    .client-carousel img {
+      height: 120px;
+      margin: 0 20px;
+      border-radius: 8px;
+      transition: transform 0.5s;
+    }
+
+    .client-carousel img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes slideImages {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+    }
+    .linkedin-float {
+  position: fixed;
+  bottom: 25px;
+  right: 90px; /* Positioned to the left of WhatsApp */
+  z-index: 1000;
+}
+
+.linkedin-float img {
+  width: 40px;  /* Smaller size */
+  height: 40px;
+  filter: invert(100%);
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.linkedin-float img:hover {
+  transform: scale(1.1);
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <a href="#hero" style="color:red; font-weight:bold; font-size:1.2rem; text-decoration:none; margin-right: auto;">EUROTECH</a> <!-- Moved to the left -->
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-overlay">
+      <a href="#hero"><img src="logo.png" alt="Eurotech Logo"></a>
+      <h1>EUROTECH INTEGRATED<br>TECHNICAL SERVICES</h1>
+      <p>Safety Engineered for Excellance</p>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="about-content">
+      <h2>About Us</h2>
+      <p>
+        EUROTECH Integrated Technical Services is a trusted name in the UAE for fire protection systems. 
+        With a team of skilled professionals, we deliver top-quality installation and maintenance of 
+        fire alarms, fire fighting equipment, emergency lighting, ELV systems, and more.
+      </p>
+    </div>
+  </section>
+  
+
+  <section class="section" id="services">
+    <div class="services-grid">
+      <div class="service-card">
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="clients">
+    <h2>Our Clients</h2>
+    <div class="client-carousel-wrapper">
+      <div class="client-carousel">
+        <img src="client1.png" alt="Client 1" />
+        <img src="client2.png" alt="Client 2" />
+        <img src="client3.png" alt="Client 3" />
+        <img src="client4.png" alt="Client 4" />
+        <img src="client5.png" alt="Client 5" />
+        <img src="client1.png" alt="Client 1 Duplicate" />
+        <img src="client2.png" alt="Client 2 Duplicate" />
+  
+      </div>
+    </div>
+  </section>
+
+  <footer class="section" id="contact" style="text-align: center;">
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:info@eurotechgulf.com" style="color:#f7931e;">info@eurotechgulf.com</a><br>
+      Mob: <a href="tel:+971589213536" style="color:#f7931e;">+971 58921 3536</a>
+    </p>
+  </footer>
+  
+  
+
+  <a href="https://wa.me/971589213536" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
+  </a>
+  <a href="https://www.linkedin.com/company/eurotech-integrated-technical-services-llc" class="linkedin-float" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+  </a>
+  
+</body>
+</html>
