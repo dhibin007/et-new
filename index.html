@@ -63,25 +63,97 @@
       display: flex;
       align-items: center;
     }
-
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95);
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        width: 200px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      }
-      nav ul.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: none;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .hero {
+    padding: 5rem 1rem 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero a img {
+    height: 90px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+    color: #040a3b;
+  }
+
+  .hero p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .about-content,
+  .contact-content {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .client-carousel img {
+    height: 80px;
+    margin: 0 10px;
+  }
+
+  .linkedin-float {
+    right: 90px;
+    bottom: 15px;
+  }
+
+  .whatsapp-float {
+    right: 20px;
+    bottom: 15px;
+  }
+
+  .linkedin-float img,
+  .whatsapp-float img {
+    width: 45px;
+    height: 45px;
+  }
+
+  #clients,
+  #contact {
+    height: auto;
+    padding: 60px 20px;
+    flex-direction: column;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section p {
+    font-size: 0.9rem;
+  }
+}
+
 
     .hero {
       background-image: url('fire-background.png');
