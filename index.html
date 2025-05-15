@@ -118,13 +118,13 @@
       font-size: 1.9rem;
       line-height: 1.1;
       color: rgb(4, 10, 59);
-      margin-left: 15px;
+      margin-left: 25px;
     }
 
     .hero p {
       font-size: 0.8rem;
       color: red;
-      margin-left: 2.9rem;
+      margin-left: 3.9rem;
     }
 
     @keyframes pulse {
@@ -275,12 +275,46 @@
 
     /* Replace background images for mobile */
     @media (max-width: 600px) {
+  nav ul {
+    /* ... existing nav styles ... */
+  }
+
+  .menu-toggle {
+    /* ... existing hamburger styles ... */
+  }
+
+  /* NEW STYLES FOR CENTERING HERO CONTENT */
+  .hero {
+    align-items: center !important; /* center horizontally */
+    text-align: center !important;  /* center text */
+  }
+
+  .hero a img {
+    height: 90px;
+    margin: 0 auto 1rem auto !important; /* center logo */
+    display: block;
+  }
+
+  .hero h1, .hero p {
+    margin-left: 0  !important;
+    text-align: center !important; 
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 0.8rem;
+  }
+}
+
       .hero {
         background-image: url('fire-background-mobile.jpg') !important;
       }
 
       #about {
-        background-image: url('about-bg-mobile.jpg') !important;
+        background-image: url('about-bg.jpg') !important;
       }
 
       #services {
@@ -288,19 +322,19 @@
       }
 
       #clients {
-        background-image: url('clients-bg-mobile.jpg') !important;
+        background-image: url('clients-bg.jpg') !important;
       }
 
       #contact {
-        background-image: url('contact-bg-mobile.jpg') !important;
+        background-image: url('contact-bg.jpg') !important;
       }
-    }
+    
   </style>
 </head>
 <body>
 
   <header>
-    <a href="#hero" style="color:white; font-weight:bold; font-size:1.2rem; text-decoration:none;">EUROTECH</a>
+    <a href="#hero" style="color:rgb(12, 2, 62); font-weight:bold; font-size:1.2rem; text-decoration:none;">EUROTECH</a>
     <div class="menu-toggle">
       <div></div>
       <div></div>
