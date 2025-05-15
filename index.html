@@ -45,10 +45,12 @@
     }
 
     .menu-toggle {
-      display: none;
+      display: flex;
       flex-direction: column;
       cursor: pointer;
-      z-index: 1001;
+      z-index: 2000;
+      postion: absolute;
+      top: 1rem;
     }
 
     .menu-toggle div {
@@ -85,9 +87,16 @@
 
       .menu-toggle {
         display: flex;
-        position: absolute;
+        position: top left;
         top: 15px;
-        right: 15px;
+        right: 20px;
+      }
+        .menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: #262e87;
+    margin: 4px 0;
+    border-radius: 2px;
       }
     }
 
@@ -335,13 +344,13 @@
 
   <header>
     <a href="#hero" style="color:rgb(12, 2, 62); font-weight:bold; font-size:1.2rem; text-decoration:none;">EUROTECH</a>
-    <div class="menu-toggle">
+    <div class="menu-toggle" id="mobile-toggle">
       <div></div>
       <div></div>
       <div></div>
     </div>
     <nav>
-      <ul>
+      <ul id="nav-menu">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Services</a></li>
@@ -413,6 +422,11 @@
       document.querySelector('nav ul').classList.toggle('active');
     });
   </script>
+<script>
+  document.getElementById("mobile-toggle").addEventListener("click", function() {
+    document.getElementById("nav-menu").classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
