@@ -23,14 +23,13 @@
       width: 100%;
       padding: 0.5rem 1rem;
       display: flex;
-      justify-content: flex-start; /* Align header content to the left */
-      align-items: center; /* Center items vertically */
+      justify-content: space-between;
+      align-items: center;
       background: transparent;
-      color: rgb(11, 0, 42);
       position: fixed;
       top: 0;
-      left: 0; /* Align header to the left */
-      z-index: 100;
+      left: 0;
+      z-index: 1000;
     }
 
     nav ul {
@@ -42,7 +41,6 @@
     nav ul li a {
       color: white;
       text-decoration: none;
-      position: top center;
       padding: 10px 5px;
     }
 
@@ -50,13 +48,15 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
+      z-index: 1001;
     }
 
     .menu-toggle div {
       width: 25px;
       height: 3px;
-      background-color: rgb(254, 254, 255);
+      background-color: #262e87; /* dark blue */
       margin: 4px 0;
+      border-radius: 2px;
     }
 
     nav {
@@ -64,37 +64,45 @@
       align-items: center;
     }
 
-    @media (max-width: 768px) {
+    /* === Mobile Specific Styling === */
+    @media (max-width: 600px) {
       nav ul {
         display: none;
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(0, 0, 0, 0.95);
         position: absolute;
         top: 60px;
         right: 10px;
-        width: 200px;
+        width: 160px;
+        padding: 10px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        border-radius: 8px;
       }
+
       nav ul.active {
         display: flex;
       }
+
       .menu-toggle {
         display: flex;
+        position: absolute;
+        top: 15px;
+        right: 15px;
       }
     }
 
     .hero {
       background-image: url('fire-background.png');
       background-size: cover;
-      background-position: left center;
+      background-position: center;
       height: 100vh;
       display: flex;
-      justify-content: flex-start; /* Align hero content to the left */
-      align-items: flex-start; /* Align hero content to the top */
+      justify-content: flex-start;
+      align-items: flex-start;
       flex-direction: column;
-      text-align: left; /* Align text to the left */
+      text-align: left;
       color: #ff0000;
-      padding: 6rem 2rem 2rem; /* Padding adjustments */
+      padding: 6rem 2rem 2rem;
       position: relative;
     }
 
@@ -109,19 +117,14 @@
     .hero h1 {
       font-size: 1.9rem;
       line-height: 1.1;
-      color: rgb(4, 10, 59); /* Change color to red */
-      text-align: left; /* Ensure text is aligned to the left */
+      color: rgb(4, 10, 59);
+      margin-left: 15px;
     }
 
     .hero p {
       font-size: 0.8rem;
-      color: red; /* Change color to red for the paragraph as well */
+      color: red;
       margin-left: 2.9rem;
-    }
-
-    @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
@@ -141,90 +144,57 @@
 
     .section h2, .section p {
       color: #f8f8f8 !important;
-      text-align: top center;
-    }
-   
-    /* Adjustments for sections to align to the top right */
-    #home,
-    #about,
-    #services,
-    #clients,
-    #contact {
-      display: flex;
-      justify-content: flex-end; /* Align to the right */
-      align-items: flex-start;
-      margin-bottom: 5.6rem;
-      flex-direction: column;
-      text-align: top center; /* Text alignment */
-      padding-top: 30px; /* Space from the top */
     }
 
     #about {
-  background-image: url('about-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+      background-image: url('about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-.about-content {
-  background-color: rgba(0, 0, 0, 0.75); /* Black with 75% opacity */
-  padding: 40px 30px;
-  border-radius: 12px;
-  max-width: 700px;
-  text-align: center;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-
+    .about-content {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px 30px;
+      border-radius: 12px;
+      max-width: 700px;
+      text-align: center;
+      color: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 
     #services {
       background-image: url('services-bg.jpg');
       background-size: cover;
-      background-position: left center;
+      background-position: center;
       height: 100vh;
       display: flex;
     }
 
     #clients {
       background-image: url('clients-bg.jpg');
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  background-image: url('clients-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
-
-.clients-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
 
     #contact {
       background-image: url('contact-bg.jpg');
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full screen height */
-  text-align: center;
-}
-
-.contact-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
 
     .services-grid {
       display: grid;
@@ -243,16 +213,6 @@
 
     .service-card:hover {
       transform: scale(1.02);
-    }
-
-    
-    
-
-    .service-card h3 {
-      padding: 10px;
-      color: #f7931e;
-      font-size: 1.1rem;
-      text-align: right;
     }
 
     .client-carousel-wrapper {
@@ -293,38 +253,59 @@
       width: 60px;
       height: 60px;
     }
+
     .linkedin-float {
-  position: fixed;
-  bottom: 25px;
-  right: 90px; /* Positioned to the left of WhatsApp */
-  z-index: 1000;
-}
+      position: fixed;
+      bottom: 25px;
+      right: 90px;
+      z-index: 1000;
+    }
 
-.linkedin-float img {
-  width: 40px;  /* Smaller size */
-  height: 40px;
-  filter: invert(100%);
-  opacity: 0.9;
-  transition: transform 0.3s ease;
-}
+    .linkedin-float img {
+      width: 40px;
+      height: 40px;
+      filter: invert(100%);
+      opacity: 0.9;
+      transition: transform 0.3s ease;
+    }
 
-.linkedin-float img:hover {
-  transform: scale(1.1);
-}
+    .linkedin-float img:hover {
+      transform: scale(1.1);
+    }
 
+    /* Replace background images for mobile */
+    @media (max-width: 600px) {
+      .hero {
+        background-image: url('fire-background-mobile.jpg') !important;
+      }
 
+      #about {
+        background-image: url('about-bg-mobile.jpg') !important;
+      }
 
+      #services {
+        background-image: url('services-bg-mobile.jpg') !important;
+      }
+
+      #clients {
+        background-image: url('clients-bg-mobile.jpg') !important;
+      }
+
+      #contact {
+        background-image: url('contact-bg-mobile.jpg') !important;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+    <a href="#hero" style="color:white; font-weight:bold; font-size:1.2rem; text-decoration:none;">EUROTECH</a>
+    <div class="menu-toggle">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <a href="#hero" style="color:red; font-weight:bold; font-size:1.2rem; text-decoration:none; margin-right: auto;">EUROTECH</a> <!-- Moved to the left -->
     <nav>
       <ul>
         <li><a href="#hero">Home</a></li>
@@ -354,12 +335,11 @@
       </p>
     </div>
   </section>
-  
 
   <section class="section" id="services">
     <div class="services-grid">
       <div class="service-card">
-        
+        <h3>Fire Alarm Systems</h3>
       </div>
     </div>
   </section>
@@ -375,32 +355,33 @@
         <img src="client5.png" alt="Client 5" />
         <img src="client1.png" alt="Client 1 Duplicate" />
         <img src="client2.png" alt="Client 2 Duplicate" />
-  
       </div>
     </div>
   </section>
 
-  <footer class="section" id="contact" style="text-align: center;">
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:info@eurotechgulf.com" style="color:#f7931e;">info@eurotechgulf.com</a><br>
-      Mob: <a href="tel:+971589213536" style="color:#f7931e;">+971 58921 3536</a>
-    </p>
+  <footer class="section" id="contact">
+    <div class="contact-content">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:info@eurotechgulf.com" style="color:#f7931e;">info@eurotechgulf.com</a><br>
+        Mob: <a href="tel:+971589213536" style="color:#f7931e;">+971 58921 3536</a>
+      </p>
+    </div>
   </footer>
-  
-  
 
   <a href="https://wa.me/971589213536" class="whatsapp-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat">
   </a>
+
   <a href="https://www.linkedin.com/company/eurotech-integrated-technical-services/" class="linkedin-float" target="_blank">
     <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
   </a>
+
   <script>
-    function toggleMenu() {
-      document.getElementById('nav-menu').classList.toggle('active');
-    }
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('nav ul').classList.toggle('active');
+    });
   </script>
-  
+
 </body>
 </html>
